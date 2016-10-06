@@ -22,14 +22,15 @@ public class PercentOffDiscount implements DiscountStrategy {
         return unitPrice * qty * discountRate;
     }
 
-    @Override
+    
     public double getDiscountRate() {
         return discountRate;
     }
 
-    @Override
+    
     public void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }
 
+    
 }

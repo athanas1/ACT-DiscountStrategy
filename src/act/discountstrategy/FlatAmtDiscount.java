@@ -21,11 +21,11 @@ private double discountRate = 1.50;
     public double getDiscountAmt(double unitPrice, int qty) {
     return unitPrice * (qty*discountRate);}
 
-    @Override
+    
     public double getDiscountRate() {
      return discountRate;}
 
-    @Override
+    
     public void setDiscountRate(double discountRate) {
     this.discountRate = discountRate;}
     

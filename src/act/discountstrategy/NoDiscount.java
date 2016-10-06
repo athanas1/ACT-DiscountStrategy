@@ -10,20 +10,17 @@ package act.discountstrategy;
  * @author Alex
  */
 public class NoDiscount implements DiscountStrategy {
-    private double discountRate = 0;
+    private final double DISCOUNT_RATE = 0;
     @Override
     public double getDiscountAmt(double unitPrice, int qty) {
-        return 0;
+        return DISCOUNT_RATE;
     }
 
-    @Override
-    public double getDiscountRate() {
-    return discountRate;
+    
+    public final double getDiscountRate() {
+    return DISCOUNT_RATE;
     }
 
-    @Override
-    public void setDiscountRate(double discountRate) {
-    this.discountRate = 0;
-    }
+  
 
 }

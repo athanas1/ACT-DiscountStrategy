@@ -6,6 +6,7 @@
 package act.discountstrategy;
 
 import java.text.NumberFormat;
+
 /**
  *
  * @author athanas1
@@ -17,14 +18,16 @@ public class LineItem {
     private int qty;
     private NumberFormat nf = NumberFormat.getCurrencyInstance();
 
-    public LineItem(Product product, int qty) {
+    public LineItem(String prodId, int qty) {
         this.product = product;
         this.qty = qty;
         getSubTotal();
     }
+
     // I might needs to make a format class to adhere to Single responsiility principle
-    public String getLineItem(){
-        String item = this.getProduct().getProdId() + "\t" + this.getProduct().getProdName() + " " + this.getQty() + "\t" + nf.format(getSubTotal());
+    public String getLineItem() {
+        String item = this.getProduct().getProdId() + "\t" + this.getProduct().getProdName() + " " + this.getQty() + "\t"
+                + nf.format(getSubTotal() + nf.format(getDiscountedTotal()));
         return item;
     }
 
@@ -52,6 +55,5 @@ public class LineItem {
     public final void setQty(int qty) {
         this.qty = qty;
     }
-    
-    
+
 }

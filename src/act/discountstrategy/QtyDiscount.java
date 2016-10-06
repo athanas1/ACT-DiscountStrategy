@@ -31,11 +31,11 @@ public class QtyDiscount implements DiscountStrategy {
         }
     }
 
-    @Override
+    
     public double getDiscountRate() {
      return discountRate;}
 
-    @Override
+    
     public void setDiscountRate(double discountRate) {
     this.discountRate = discountRate;}
 
@@ -46,5 +46,11 @@ public class QtyDiscount implements DiscountStrategy {
     public void setMinQty(int minQty) {
         this.minQty = minQty;
     }
+    //testing class
+//    public static void main(String[] args) {
+//        DiscountStrategy discount = new QtyDiscount(.10,2);
+//        double discountAmt = discount.getDiscountAmt(100, 2);
+//        System.out.println(discountAmt);
+//    }
 
 }

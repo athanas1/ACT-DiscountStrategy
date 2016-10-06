@@ -7,8 +7,8 @@ package act.discountstrategy;
 
 /**
  *
- * @author Alex
+ * @author athanas1
  */
-public interface DiscountStrategy {
-    public abstract double getDiscountAmt(double unitPrice, int qty);
+interface ReceiptFormatStrategy {
+    public abstract void getReceiptFormat();
 }

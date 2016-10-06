@@ -13,12 +13,17 @@ public class Receipt {
     private Customer customer;
     private DataStore dataStore;
     private LineItem[] lineItems;
+    private OutputStrategy output;
+    
     
     public Receipt(String customerId,DataStore dataStore) {
         this.dataStore=dataStore;
         customer = dataStore.findCustomerById(customerId);
     }
     
+    public final void addItemToReceipt(String prodId, int qty){
+        LineItem item = new LineItem(prodId,qty);
+    }
     
     private void addItemToLineItems(LineItem item){
         LineItem[]temp = new LineItem[lineItems.length + 1];

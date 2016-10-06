@@ -21,9 +21,9 @@ public class Startup {
       //start new sale
       //String for customer number because more flexible
       register.startNewSaleForCustomerId("C100",dataStore);
-      register.addProductToSale("A101",2,dataStore);
-      register.addProductToSale("B200",1,dataStore);
-      register.addProductToSale("P400",3,dataStore);
+      register.addProductToSale("A101",2);
+      register.addProductToSale("B200",1);
+      register.addProductToSale("P400",3);
       register.endSale();
     }
 
