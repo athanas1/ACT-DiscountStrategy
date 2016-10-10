@@ -10,5 +10,5 @@ package act.discountstrategy;
  * @author athanas1
  */
 public interface OutputStrategy  {
-    public abstract void printReceipt (Receipt r, ReceiptFormatStrategy Format);
+    public abstract void printReceipt (Receipt r);
 }

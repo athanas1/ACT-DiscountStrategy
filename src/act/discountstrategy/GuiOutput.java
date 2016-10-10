@@ -5,6 +5,8 @@
  */
 package act.discountstrategy;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author athanas1
@@ -12,10 +14,8 @@ package act.discountstrategy;
 public class GuiOutput implements OutputStrategy {
 
     @Override
-    public void printReceipt(Receipt r, ReceiptFormatStrategy format) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void printReceipt(Receipt r) {
+        JOptionPane.showMessageDialog(null, r.getReceipt());
     }
 
-    
-    
 }

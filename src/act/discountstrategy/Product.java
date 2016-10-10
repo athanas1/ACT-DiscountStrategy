@@ -22,7 +22,10 @@ public class Product {
         this.prodName = prodName;
         this.discountStrategy = discountStrategy;
     }
-
+    
+    public double getDiscountAmount(int qty){
+        return discountStrategy.getDiscountAmt(unitPrice, qty);
+    }
     public String getProdName() {
         return prodName;
     }

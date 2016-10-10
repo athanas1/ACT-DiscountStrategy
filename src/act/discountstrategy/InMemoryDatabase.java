@@ -18,12 +18,16 @@ public class InMemoryDatabase implements DataStore {
     
     private Product[] products = {
         new Product("11", 29.95, "Brewer's Hat",  new PercentOffDiscount(.10)),
-        new Product("22", 49.95,"Brewer's Hat", new FlatAmtDiscount(5.00)),
+        new Product("22", 49.95, "Lady's Blouse", new FlatAmtDiscount(5.00)),
         new Product("33", 39.95,"Men's Black Belt", new NoDiscount())
     };
     
     @Override
     public final Customer findCustomerById(String custId){
+        if (custId == null || custId.length() == 0) {
+            //Throw exception for illegal customer ID
+            return null;
+        }
         Customer foundCustomer = null;
         
         for(Customer c : customers){
@@ -35,7 +39,12 @@ public class InMemoryDatabase implements DataStore {
         
         return foundCustomer;
     }
+    @Override
     public final Product findProductById(String prodId){
+        if (prodId == null || prodId.length() == 0) {
+            //Throw exception for illegal product ID
+            return null;
+        }
         Product product = null;
         
         for(Product p : products){

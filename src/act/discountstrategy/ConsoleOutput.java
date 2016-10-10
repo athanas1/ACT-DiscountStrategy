@@ -12,8 +12,8 @@ package act.discountstrategy;
 public class ConsoleOutput implements OutputStrategy {
 
     @Override
-    public void printReceipt(Receipt r, ReceiptFormatStrategy Format) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void printReceipt(Receipt r) {
+        System.out.println(r.getReceipt());
     }
-    
+
 }

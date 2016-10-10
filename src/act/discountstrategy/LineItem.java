@@ -18,28 +18,37 @@ public class LineItem {
     private int qty;
     private NumberFormat nf = NumberFormat.getCurrencyInstance();
 
-    public LineItem(String prodId, int qty) {
-        this.product = product;
+    public LineItem(String prodId, int qty, DataStore db) {
+        this.product = db.findProductById(prodId);
         this.qty = qty;
-        getSubTotal();
     }
 
     // I might needs to make a format class to adhere to Single responsiility principle
     public String getLineItem() {
-        String item = this.getProduct().getProdId() + "\t" + this.getProduct().getProdName() + " " + this.getQty() + "\t"
-                + nf.format(getSubTotal() + nf.format(getDiscountedTotal()));
+        String item = product.getProdId()
+                + "\t\t" + product.getProdName()
+                + "\t\t" + qty
+                + "\t\t" + nf.format(product.getDiscountAmount(qty))
+                + "\t\t" + nf.format(getSubTotal());
+
         return item;
     }
-
-    private final double getSubTotal() {
-        return qty * product.getUnitPrice();
+   // encapsulate this with get total so SubTotal is always there
+    public final double getSubTotal() {
+        return product.getUnitPrice() * qty - product.getDiscountAmount(qty);
+    }
+    
+    public final double getTotal(){
+        return getSubTotal() + product.getDiscountAmount(qty);
     }
 
-    public final double getDiscountedTotal() {
-        return product.getDiscountStrategy().getDiscountAmt(product.getUnitPrice(), qty);
-
-    }
-
+//    public final double getDiscountAmount() {
+//        return product.getDiscountStrategy().getDiscountAmt(product.getUnitPrice(), qty);
+//
+//    }
+//        public final double getTotalBeforeDiscount(){
+//        return getSubTotal() + getDiscountAmount();
+//    }
     public final Product getProduct() {
         return product;
     }

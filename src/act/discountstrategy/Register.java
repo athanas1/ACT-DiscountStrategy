@@ -12,17 +12,22 @@ package act.discountstrategy;
 public class Register {
 
     private Receipt receipt;
-    
+    private int itemIndex = 0;
+      
+        
 
     public final void startNewSaleForCustomerId(String customerId,DataStore dataStore) {
         receipt = new Receipt(customerId,dataStore);
     }
 
-    public final void addProductToSale(String prodId, int qty) {
-       receipt.addItemToReceipt(prodId, qty);
+    public final void addProductToSale(String prodId, int qty, DataStore db) {
+       itemIndex++;
+       receipt.addLineItem(prodId, qty, db);
+       
     }
 
-    public final void endSale() {
+    public final void endSale(OutputStrategy output) {
+        output.printReceipt(receipt);
     }
 
 }
