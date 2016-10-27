@@ -19,7 +19,7 @@ public class InMemoryDatabase implements DataStore {
     private Product[] products = {
         new Product("11", 29.95, "Brewer's Hat",  new PercentOffDiscount(.10)),
         new Product("22", 49.95, "Lady's Blouse", new FlatAmtDiscount(5.00)),
-        new Product("33", 39.95,"Men's Black Belt", new NoDiscount())
+        new Product("33", 39.95, "Men's Black Belt", new NoDiscount())
     };
     
     @Override

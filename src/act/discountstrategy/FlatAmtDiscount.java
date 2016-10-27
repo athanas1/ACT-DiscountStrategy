@@ -19,7 +19,7 @@ private double discountRate = 1.50;
     
     @Override
     public double getDiscountAmt(double unitPrice, int qty) {
-    return unitPrice + (qty*discountRate);}
+    return qty*discountRate;}
 
     
     public double getDiscountRate() {

@@ -40,8 +40,8 @@ public class Receipt {
         string = "\t\t\t\t\tKohl's Department Store"
                 + "\n" + "Customer ID# and Name" + customer.getCustomerId()
                 + ": " + customer.getFirstName() + " " + customer.getLastName() + "\n\n\n"
-                + "ID\t\tName\t\tQuantity\t\tDiscount\t\tTotal\n"
-                + lineItems + "\t\t\t\t\t\tTotal   " + "\t\t\t" +nf.format(getTotal());
+                + "ID\t\tName\t\tQuantity\t\tDiscount\tTotal\n"
+                + lineItems + "\t\t\tTotal   " + "\t\t" +nf.format(getTotal());
 
         return string;
 
